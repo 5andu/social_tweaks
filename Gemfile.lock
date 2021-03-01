@@ -294,7 +294,7 @@ DEPENDENCIES
   selenium-webdriver
   sidekiq (~> 6.1)
   spring
-  sqlite3 (~> 1.4)
+  sqlite3 (~> 1.4.2)
   turbolinks (~> 5)
   twitter (~> 7.0)
   tzinfo-data
