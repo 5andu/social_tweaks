@@ -4,8 +4,21 @@
 
 </div>
 
-<div class="d-flex align-items-center justify-content-center">
 
-<%= button_to "Connect Twitter", "auth/twitter", method: :post, class: "btn btn-primary" %>
 
-</div>
+<% if Current.user %>
+    <div class="d-flex align-items-center justify-content-center">
+        Link your twitter account to be able to schedule posts: 
+    </div>
+    <div class="d-flex align-items-center justify-content-center">
+    <br>
+        <%= button_to "Connect Twitter", "auth/twitter", method: :post, class: "btn btn-primary" %>
+    </div>
+<% else %>
+    <div class="d-flex align-items-center justify-content-center">
+    
+        Please create an account or Login to use the app
+    </div>
+<% end %>
+
+

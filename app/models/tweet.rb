@@ -2,11 +2,11 @@ class Tweet < ApplicationRecord
   belongs_to :user
   belongs_to :twitter_account
 
-  validates :body, length: { minimum: 1, maximum: 280}
+  validates :body, length: { minimum: 1, maximum: 280 }
   validates :publish_at, presence: true
 
   after_initialize do
-    self.publish_at ||= 2.hour.from_now
+    self.publish_at ||= 0.hours.from_now
   end
 
   after_save_commit do
@@ -14,7 +14,6 @@ class Tweet < ApplicationRecord
       TweetJob.set(wait_until: publish_at).perform_later(self)
     end
   end
-
 
   def published?
     tweet_id?
